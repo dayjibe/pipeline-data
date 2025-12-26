@@ -1,38 +1,99 @@
 {
   "type": "FeatureCollection",
-  "name": "US_Natural_Gas_Pipelines",
-  "description": "Major interstate natural gas transmission pipelines for data center site selection",
-  "lastUpdated": "2025-01-01",
-  "source": "Compiled from EIA, NPMS public data",
+  "name": "US_Natural_Gas_Pipelines_Enhanced",
+  "description": "US natural gas pipelines with hierarchy, pressure data, and connection relationships for data center site selection",
+  "lastUpdated": "2025-12-26",
+  "source": "Compiled from EIA, FERC filings, operator data",
+  "legend": {
+    "pipeline_types": {
+      "interstate_header": "Major interstate transmission pipelines (FERC regulated)",
+      "regional_transmission": "Regional transmission lines",
+      "lng_feed": "Dedicated LNG terminal feed pipelines",
+      "private_lateral": "Private/company-owned laterals to specific facilities",
+      "connector": "Extension projects connecting systems"
+    },
+    "pressure_notes": "MAOP = Maximum Allowable Operating Pressure. Typical operating is 70-90% of MAOP."
+  },
   "features": [
     {
       "type": "Feature",
       "properties": {
         "id": 1,
-        "name": "Permian Highway Pipeline",
+        "name": "Tennessee Gas Pipeline",
         "operator": "Kinder Morgan",
-        "diameter_inches": 42,
+        "pipeline_type": "interstate_header",
+        "diameter_inches": 36,
         "capacity_bcfd": 2.1,
-        "utilization_pct": 67,
+        "utilization_pct": 88,
+        "maop_psig": 1200,
+        "typical_pressure_psig": 1000,
         "status": "operational",
-        "region": "West Texas to Gulf Coast",
-        "year_built": 2020,
-        "length_miles": 430,
-        "interconnects": ["Waha Hub", "Katy Hub"],
-        "ferc_regulated": true
+        "region": "Gulf Coast to Northeast",
+        "year_built": 1944,
+        "length_miles": 11500,
+        "connects_to": [
+          "Gator Express",
+          "Evangeline Pass",
+          "Multiple LNG facilities"
+        ],
+        "ferc_regulated": true,
+        "line_weight": "heavy"
       },
       "geometry": {
         "type": "LineString",
         "coordinates": [
-          [-103.50, 31.80],
-          [-102.80, 31.50],
-          [-102.10, 31.20],
-          [-101.30, 31.00],
-          [-100.50, 30.80],
-          [-99.80, 30.40],
-          [-99.20, 30.10],
-          [-98.80, 29.80],
-          [-98.50, 29.40]
+          [
+            -93.5,
+            30.0
+          ],
+          [
+            -91.5,
+            31.5
+          ],
+          [
+            -89.5,
+            33.0
+          ],
+          [
+            -87.5,
+            34.5
+          ],
+          [
+            -86.0,
+            36.0
+          ],
+          [
+            -84.5,
+            37.5
+          ],
+          [
+            -82.5,
+            38.5
+          ],
+          [
+            -80.5,
+            39.8
+          ],
+          [
+            -78.5,
+            40.8
+          ],
+          [
+            -76.5,
+            41.5
+          ],
+          [
+            -74.5,
+            42.0
+          ],
+          [
+            -72.5,
+            42.2
+          ],
+          [
+            -71.0,
+            42.3
+          ]
         ]
       }
     },
@@ -40,30 +101,81 @@
       "type": "Feature",
       "properties": {
         "id": 2,
-        "name": "Gulf Coast Express Pipeline",
-        "operator": "Kinder Morgan",
-        "diameter_inches": 42,
-        "capacity_bcfd": 2.0,
-        "utilization_pct": 72,
+        "name": "Texas Eastern Transmission (TETCO)",
+        "operator": "Enbridge",
+        "pipeline_type": "interstate_header",
+        "diameter_inches": 36,
+        "capacity_bcfd": 2.5,
+        "utilization_pct": 82,
+        "maop_psig": 1440,
+        "typical_pressure_psig": 1100,
         "status": "operational",
-        "region": "Permian Basin to Agua Dulce",
-        "year_built": 2019,
-        "length_miles": 500,
-        "interconnects": ["Waha Hub", "Agua Dulce Hub"],
-        "ferc_regulated": true
+        "region": "Texas to Northeast",
+        "year_built": 1947,
+        "length_miles": 1700,
+        "connects_to": [
+          "Gator Express",
+          "Venice Extension",
+          "Plaquemines LNG"
+        ],
+        "ferc_regulated": true,
+        "line_weight": "heavy"
       },
       "geometry": {
         "type": "LineString",
         "coordinates": [
-          [-103.40, 31.70],
-          [-102.50, 31.30],
-          [-101.50, 30.90],
-          [-100.50, 30.50],
-          [-99.50, 30.00],
-          [-98.50, 29.50],
-          [-97.80, 28.80],
-          [-97.50, 28.20],
-          [-97.80, 27.80]
+          [
+            -95.5,
+            29.8
+          ],
+          [
+            -94.0,
+            30.5
+          ],
+          [
+            -93.2,
+            31.5
+          ],
+          [
+            -92.0,
+            32.5
+          ],
+          [
+            -90.8,
+            33.2
+          ],
+          [
+            -89.5,
+            34.5
+          ],
+          [
+            -88.5,
+            35.8
+          ],
+          [
+            -87.0,
+            37.5
+          ],
+          [
+            -85.2,
+            38.5
+          ],
+          [
+            -83.0,
+            39.5
+          ],
+          [
+            -80.5,
+            40.2
+          ],
+          [
+            -78.0,
+            40.8
+          ],
+          [
+            -75.5,
+            41.0
+          ]
         ]
       }
     },
@@ -71,30 +183,64 @@
       "type": "Feature",
       "properties": {
         "id": 3,
-        "name": "Transwestern Pipeline",
-        "operator": "Energy Transfer",
+        "name": "Southern Natural Gas Pipeline",
+        "operator": "Kinder Morgan",
+        "pipeline_type": "interstate_header",
         "diameter_inches": 36,
-        "capacity_bcfd": 1.4,
-        "utilization_pct": 73,
+        "capacity_bcfd": 2.2,
+        "utilization_pct": 76,
+        "maop_psig": 1200,
+        "typical_pressure_psig": 950,
         "status": "operational",
-        "region": "West Texas to California",
-        "year_built": 1960,
-        "length_miles": 1200,
-        "interconnects": ["Permian Basin", "SoCal Border"],
-        "ferc_regulated": true
+        "region": "Gulf Coast to Southeast",
+        "year_built": 1954,
+        "length_miles": 7600,
+        "connects_to": [
+          "Evangeline Pass",
+          "Sabal Trail"
+        ],
+        "ferc_regulated": true,
+        "line_weight": "heavy"
       },
       "geometry": {
         "type": "LineString",
         "coordinates": [
-          [-102.50, 32.00],
-          [-104.00, 32.20],
-          [-106.00, 32.30],
-          [-108.00, 32.50],
-          [-110.00, 33.00],
-          [-112.00, 33.50],
-          [-114.00, 34.00],
-          [-116.00, 34.20],
-          [-117.50, 34.00]
+          [
+            -91.5,
+            29.2
+          ],
+          [
+            -90.5,
+            30.0
+          ],
+          [
+            -89.8,
+            30.5
+          ],
+          [
+            -89.0,
+            31.2
+          ],
+          [
+            -88.2,
+            31.8
+          ],
+          [
+            -87.5,
+            32.5
+          ],
+          [
+            -86.5,
+            33.2
+          ],
+          [
+            -85.5,
+            33.6
+          ],
+          [
+            -84.8,
+            33.8
+          ]
         ]
       }
     },
@@ -102,30 +248,88 @@
       "type": "Feature",
       "properties": {
         "id": 4,
-        "name": "El Paso Natural Gas Pipeline",
-        "operator": "Kinder Morgan",
-        "diameter_inches": 30,
-        "capacity_bcfd": 1.3,
-        "utilization_pct": 68,
+        "name": "Transcontinental Gas Pipeline (Transco)",
+        "operator": "Williams",
+        "pipeline_type": "interstate_header",
+        "diameter_inches": 42,
+        "capacity_bcfd": 17.8,
+        "utilization_pct": 85,
+        "maop_psig": 1440,
+        "typical_pressure_psig": 1150,
         "status": "operational",
-        "region": "Texas to California",
-        "year_built": 1947,
-        "length_miles": 1400,
-        "interconnects": ["Permian Basin", "California"],
-        "ferc_regulated": true
+        "region": "Texas to New York",
+        "year_built": 1950,
+        "length_miles": 1800,
+        "connects_to": [
+          "Mountain Valley Pipeline",
+          "Atlantic Sunrise"
+        ],
+        "ferc_regulated": true,
+        "line_weight": "heavy"
       },
       "geometry": {
         "type": "LineString",
         "coordinates": [
-          [-103.00, 31.50],
-          [-104.50, 31.80],
-          [-106.50, 31.80],
-          [-108.20, 32.50],
-          [-110.50, 33.20],
-          [-112.80, 33.50],
-          [-115.20, 34.00],
-          [-117.00, 34.20],
-          [-118.20, 34.10]
+          [
+            -95.2,
+            29.6
+          ],
+          [
+            -93.5,
+            30.5
+          ],
+          [
+            -91.8,
+            31.2
+          ],
+          [
+            -90.0,
+            32.0
+          ],
+          [
+            -88.5,
+            33.8
+          ],
+          [
+            -86.0,
+            33.9
+          ],
+          [
+            -84.5,
+            33.8
+          ],
+          [
+            -82.5,
+            34.2
+          ],
+          [
+            -80.2,
+            34.5
+          ],
+          [
+            -78.5,
+            36.0
+          ],
+          [
+            -77.5,
+            38.5
+          ],
+          [
+            -76.0,
+            39.5
+          ],
+          [
+            -75.2,
+            40.0
+          ],
+          [
+            -74.5,
+            40.5
+          ],
+          [
+            -74.0,
+            40.8
+          ]
         ]
       }
     },
@@ -133,30 +337,43 @@
       "type": "Feature",
       "properties": {
         "id": 5,
-        "name": "Kinder Morgan Texas Pipeline",
+        "name": "Evangeline Pass Expansion",
         "operator": "Kinder Morgan",
+        "pipeline_type": "connector",
         "diameter_inches": 36,
-        "capacity_bcfd": 1.8,
-        "utilization_pct": 91,
+        "capacity_bcfd": 1.1,
+        "utilization_pct": 60,
+        "maop_psig": 1200,
+        "typical_pressure_psig": 950,
         "status": "operational",
-        "region": "West Texas to Dallas",
-        "year_built": 1952,
-        "length_miles": 450,
-        "interconnects": ["Permian Basin", "Dallas Market"],
-        "ferc_regulated": true
+        "region": "Mississippi to Gator Express interconnect",
+        "year_built": 2024,
+        "length_miles": 13,
+        "connects_from": "Southern Natural Gas",
+        "connects_to": "Gator Express Pipeline",
+        "purpose": "Feed gas to Plaquemines LNG via Gator Express",
+        "ferc_regulated": true,
+        "line_weight": "medium"
       },
       "geometry": {
         "type": "LineString",
         "coordinates": [
-          [-103.50, 32.80],
-          [-102.50, 32.85],
-          [-101.50, 32.90],
-          [-100.80, 32.90],
-          [-100.00, 32.95],
-          [-99.20, 33.00],
-          [-98.20, 33.10],
-          [-97.50, 32.90],
-          [-96.80, 32.80]
+          [
+            -89.4,
+            30.3
+          ],
+          [
+            -89.5,
+            30.1
+          ],
+          [
+            -89.55,
+            29.95
+          ],
+          [
+            -89.5,
+            29.8
+          ]
         ]
       }
     },
@@ -164,30 +381,39 @@
       "type": "Feature",
       "properties": {
         "id": 6,
-        "name": "Columbia Gulf Transmission",
-        "operator": "TC Energy",
+        "name": "Venice Extension Project",
+        "operator": "Enbridge (Texas Eastern)",
+        "pipeline_type": "connector",
         "diameter_inches": 42,
-        "capacity_bcfd": 3.0,
-        "utilization_pct": 78,
+        "capacity_bcfd": 1.3,
+        "utilization_pct": 55,
+        "maop_psig": 1440,
+        "typical_pressure_psig": 1100,
         "status": "operational",
-        "region": "Gulf Coast to Northeast",
-        "year_built": 1963,
-        "length_miles": 800,
-        "interconnects": ["Louisiana", "Kentucky", "Tennessee"],
-        "ferc_regulated": true
+        "region": "TETCO Line 40 to Plaquemines LNG",
+        "year_built": 2024,
+        "length_miles": 3,
+        "connects_from": "Texas Eastern Transmission Line 40",
+        "connects_to": "Plaquemines LNG / Gator Express",
+        "purpose": "Direct feed to Plaquemines LNG terminal",
+        "ferc_regulated": true,
+        "line_weight": "medium"
       },
       "geometry": {
         "type": "LineString",
         "coordinates": [
-          [-90.50, 29.50],
-          [-90.00, 30.00],
-          [-89.20, 30.80],
-          [-88.50, 31.80],
-          [-88.00, 32.50],
-          [-87.50, 33.50],
-          [-87.20, 34.00],
-          [-86.50, 35.00],
-          [-85.80, 36.20]
+          [
+            -89.7,
+            29.55
+          ],
+          [
+            -89.6,
+            29.45
+          ],
+          [
+            -89.5,
+            29.35
+          ]
         ]
       }
     },
@@ -195,34 +421,58 @@
       "type": "Feature",
       "properties": {
         "id": 7,
-        "name": "Texas Eastern Transmission",
-        "operator": "Enbridge",
-        "diameter_inches": 36,
-        "capacity_bcfd": 2.5,
-        "utilization_pct": 82,
+        "name": "Gator Express Pipeline - Phase 1 (Southwest Lateral TGP)",
+        "operator": "Venture Global",
+        "pipeline_type": "private_lateral",
+        "diameter_inches": 42,
+        "capacity_bcfd": 1.9,
+        "utilization_pct": 75,
+        "maop_psig": 1200,
+        "typical_pressure_psig": 1000,
         "status": "operational",
-        "region": "Texas to Northeast",
-        "year_built": 1947,
-        "length_miles": 1700,
-        "interconnects": ["Katy Hub", "Appalachian Basin", "New York"],
-        "ferc_regulated": true
+        "region": "Offshore interconnect to Plaquemines LNG",
+        "year_built": 2024,
+        "length_miles": 15.1,
+        "connects_from": [
+          "Tennessee Gas Pipeline",
+          "Texas Eastern Transmission"
+        ],
+        "connects_to": "Plaquemines LNG Terminal",
+        "owner": "Venture Global Gator Express, LLC",
+        "purpose": "Primary feed gas supply to Plaquemines LNG Phase 1",
+        "ferc_docket": "CP17-67-000",
+        "ferc_regulated": true,
+        "line_weight": "medium",
+        "facility_served": {
+          "name": "Plaquemines LNG Terminal",
+          "type": "LNG Export",
+          "capacity_mtpa": 20,
+          "operator": "Venture Global LNG"
+        }
       },
       "geometry": {
         "type": "LineString",
         "coordinates": [
-          [-95.50, 29.80],
-          [-94.00, 30.50],
-          [-93.20, 31.50],
-          [-92.00, 32.50],
-          [-90.80, 33.20],
-          [-89.50, 34.50],
-          [-88.50, 35.80],
-          [-87.00, 37.50],
-          [-85.20, 38.50],
-          [-83.00, 39.50],
-          [-80.50, 40.20],
-          [-78.00, 40.80],
-          [-75.50, 41.00]
+          [
+            -89.8,
+            29.7
+          ],
+          [
+            -89.7,
+            29.6
+          ],
+          [
+            -89.6,
+            29.5
+          ],
+          [
+            -89.5,
+            29.4
+          ],
+          [
+            -89.45,
+            29.35
+          ]
         ]
       }
     },
@@ -230,36 +480,51 @@
       "type": "Feature",
       "properties": {
         "id": 8,
-        "name": "Transcontinental Gas Pipeline (Transco)",
-        "operator": "Williams",
+        "name": "Gator Express Pipeline - Phase 2 (Southwest Lateral TETCO)",
+        "operator": "Venture Global",
+        "pipeline_type": "private_lateral",
         "diameter_inches": 42,
-        "capacity_bcfd": 3.2,
-        "utilization_pct": 85,
+        "capacity_bcfd": 1.9,
+        "utilization_pct": 70,
+        "maop_psig": 1200,
+        "typical_pressure_psig": 1000,
         "status": "operational",
-        "region": "Texas to New York",
-        "year_built": 1950,
-        "length_miles": 1800,
-        "interconnects": ["Houston", "Atlanta", "Philadelphia", "New York"],
-        "ferc_regulated": true
+        "region": "TETCO interconnect to Plaquemines LNG",
+        "year_built": 2024,
+        "length_miles": 11.7,
+        "connects_from": "Texas Eastern Transmission",
+        "connects_to": "Plaquemines LNG Terminal",
+        "owner": "Venture Global Gator Express, LLC",
+        "purpose": "Secondary feed gas supply to Plaquemines LNG Phase 2",
+        "ferc_docket": "CP17-67-000",
+        "ferc_regulated": true,
+        "line_weight": "medium",
+        "facility_served": {
+          "name": "Plaquemines LNG Terminal",
+          "type": "LNG Export",
+          "capacity_mtpa": 20,
+          "operator": "Venture Global LNG"
+        }
       },
       "geometry": {
         "type": "LineString",
         "coordinates": [
-          [-95.20, 29.60],
-          [-93.50, 30.50],
-          [-91.80, 31.20],
-          [-90.00, 32.00],
-          [-88.50, 33.80],
-          [-86.00, 33.90],
-          [-84.50, 33.80],
-          [-82.50, 34.20],
-          [-80.20, 34.50],
-          [-78.50, 36.00],
-          [-77.50, 38.50],
-          [-76.00, 39.50],
-          [-75.20, 40.00],
-          [-74.50, 40.50],
-          [-74.00, 40.80]
+          [
+            -89.75,
+            29.55
+          ],
+          [
+            -89.65,
+            29.48
+          ],
+          [
+            -89.55,
+            29.42
+          ],
+          [
+            -89.48,
+            29.36
+          ]
         ]
       }
     },
@@ -267,30 +532,56 @@
       "type": "Feature",
       "properties": {
         "id": 9,
-        "name": "Southern Natural Gas Pipeline",
-        "operator": "Kinder Morgan",
-        "diameter_inches": 36,
-        "capacity_bcfd": 2.2,
-        "utilization_pct": 76,
+        "name": "Creole Trail Pipeline",
+        "operator": "Cheniere Energy",
+        "pipeline_type": "lng_feed",
+        "diameter_inches": 42,
+        "capacity_bcfd": 3.3,
+        "utilization_pct": 88,
+        "maop_psig": 1480,
+        "typical_pressure_psig": 1200,
         "status": "operational",
-        "region": "Gulf Coast to Southeast",
-        "year_built": 1954,
-        "length_miles": 900,
-        "interconnects": ["Louisiana", "Mississippi", "Alabama", "Georgia"],
-        "ferc_regulated": true
+        "region": "To Sabine Pass LNG",
+        "year_built": 2008,
+        "length_miles": 94,
+        "connects_from": [
+          "ANR Pipeline",
+          "Transco",
+          "Multiple headers"
+        ],
+        "connects_to": "Sabine Pass LNG Terminal",
+        "ferc_regulated": true,
+        "line_weight": "medium",
+        "facility_served": {
+          "name": "Sabine Pass LNG Terminal",
+          "type": "LNG Export",
+          "capacity_mtpa": 30,
+          "operator": "Cheniere Energy"
+        }
       },
       "geometry": {
         "type": "LineString",
         "coordinates": [
-          [-91.50, 29.20],
-          [-90.50, 30.00],
-          [-89.80, 30.50],
-          [-89.00, 31.20],
-          [-88.20, 31.80],
-          [-87.50, 32.50],
-          [-86.50, 33.20],
-          [-85.50, 33.60],
-          [-84.80, 33.80]
+          [
+            -93.5,
+            30.2
+          ],
+          [
+            -93.4,
+            30.0
+          ],
+          [
+            -93.5,
+            29.8
+          ],
+          [
+            -93.7,
+            29.75
+          ],
+          [
+            -93.85,
+            29.73
+          ]
         ]
       }
     },
@@ -298,34 +589,49 @@
       "type": "Feature",
       "properties": {
         "id": 10,
-        "name": "Florida Gas Transmission",
-        "operator": "Kinder Morgan",
-        "diameter_inches": 30,
-        "capacity_bcfd": 1.8,
-        "utilization_pct": 71,
+        "name": "Calcasieu Pass Pipeline",
+        "operator": "Venture Global",
+        "pipeline_type": "private_lateral",
+        "diameter_inches": 42,
+        "capacity_bcfd": 1.5,
+        "utilization_pct": 85,
+        "maop_psig": 1200,
+        "typical_pressure_psig": 1000,
         "status": "operational",
-        "region": "Texas to Florida",
-        "year_built": 1959,
-        "length_miles": 1100,
-        "interconnects": ["Texas", "Louisiana", "Florida"],
-        "ferc_regulated": true
+        "region": "To Calcasieu Pass LNG",
+        "year_built": 2022,
+        "length_miles": 24,
+        "connects_from": "Multiple interstate headers at Gillis Hub",
+        "connects_to": "Calcasieu Pass LNG Terminal",
+        "owner": "Venture Global",
+        "ferc_regulated": true,
+        "line_weight": "medium",
+        "facility_served": {
+          "name": "Calcasieu Pass LNG Terminal",
+          "type": "LNG Export",
+          "capacity_mtpa": 10,
+          "operator": "Venture Global LNG"
+        }
       },
       "geometry": {
         "type": "LineString",
         "coordinates": [
-          [-94.50, 30.00],
-          [-92.50, 30.20],
-          [-90.50, 30.30],
-          [-88.50, 30.40],
-          [-87.00, 30.50],
-          [-86.00, 30.40],
-          [-85.00, 30.20],
-          [-84.00, 30.00],
-          [-83.00, 29.50],
-          [-82.00, 28.80],
-          [-81.50, 28.00],
-          [-80.50, 27.00],
-          [-80.20, 26.00]
+          [
+            -93.3,
+            30.2
+          ],
+          [
+            -93.25,
+            30.05
+          ],
+          [
+            -93.3,
+            29.9
+          ],
+          [
+            -93.35,
+            29.78
+          ]
         ]
       }
     },
@@ -333,33 +639,48 @@
       "type": "Feature",
       "properties": {
         "id": 11,
-        "name": "Northwest Pipeline",
-        "operator": "Williams",
-        "diameter_inches": 36,
-        "capacity_bcfd": 2.8,
-        "utilization_pct": 54,
+        "name": "Cameron Access Pipeline",
+        "operator": "Sempra",
+        "pipeline_type": "lng_feed",
+        "diameter_inches": 42,
+        "capacity_bcfd": 1.5,
+        "utilization_pct": 75,
+        "maop_psig": 1440,
+        "typical_pressure_psig": 1150,
         "status": "operational",
-        "region": "Rocky Mountains to Pacific Northwest",
-        "year_built": 1956,
-        "length_miles": 1500,
-        "interconnects": ["Opal Hub", "Sumas"],
-        "ferc_regulated": true
+        "region": "To Cameron LNG",
+        "year_built": 2019,
+        "length_miles": 36,
+        "connects_from": "Multiple headers",
+        "connects_to": "Cameron LNG Terminal",
+        "ferc_regulated": true,
+        "line_weight": "medium",
+        "facility_served": {
+          "name": "Cameron LNG Terminal",
+          "type": "LNG Export",
+          "capacity_mtpa": 12,
+          "operator": "Sempra Infrastructure"
+        }
       },
       "geometry": {
         "type": "LineString",
         "coordinates": [
-          [-110.00, 41.50],
-          [-111.50, 42.00],
-          [-113.00, 42.50],
-          [-115.00, 43.50],
-          [-117.00, 44.50],
-          [-118.50, 45.50],
-          [-120.00, 45.80],
-          [-121.50, 45.50],
-          [-122.50, 45.60],
-          [-122.80, 46.50],
-          [-122.50, 47.50],
-          [-122.30, 48.50]
+          [
+            -93.2,
+            30.0
+          ],
+          [
+            -93.25,
+            29.9
+          ],
+          [
+            -93.3,
+            29.82
+          ],
+          [
+            -93.35,
+            29.78
+          ]
         ]
       }
     },
@@ -367,28 +688,50 @@
       "type": "Feature",
       "properties": {
         "id": 12,
-        "name": "Ruby Pipeline",
-        "operator": "Tallgrass Energy",
+        "name": "LEAP Pipeline (Louisiana Energy Access Project)",
+        "operator": "DT Midstream",
+        "pipeline_type": "regional_transmission",
         "diameter_inches": 42,
-        "capacity_bcfd": 1.5,
-        "utilization_pct": 45,
+        "capacity_bcfd": 1.9,
+        "utilization_pct": 72,
+        "maop_psig": 1440,
+        "typical_pressure_psig": 1100,
         "status": "operational",
-        "region": "Wyoming to Oregon",
-        "year_built": 2011,
-        "length_miles": 680,
-        "interconnects": ["Opal Hub", "Malin Hub"],
-        "ferc_regulated": true
+        "region": "Haynesville to Gillis Hub",
+        "year_built": 2022,
+        "length_miles": 180,
+        "connects_from": "Haynesville Shale production",
+        "connects_to": "Gillis Hub",
+        "ferc_regulated": true,
+        "line_weight": "medium"
       },
       "geometry": {
         "type": "LineString",
         "coordinates": [
-          [-110.50, 41.30],
-          [-112.00, 41.00],
-          [-114.00, 41.20],
-          [-116.00, 41.50],
-          [-118.00, 41.80],
-          [-119.50, 42.00],
-          [-121.00, 42.00]
+          [
+            -93.8,
+            32.5
+          ],
+          [
+            -93.5,
+            32.0
+          ],
+          [
+            -93.2,
+            31.5
+          ],
+          [
+            -93.0,
+            31.0
+          ],
+          [
+            -92.8,
+            30.5
+          ],
+          [
+            -92.8,
+            30.2
+          ]
         ]
       }
     },
@@ -396,32 +739,46 @@
       "type": "Feature",
       "properties": {
         "id": 13,
-        "name": "Alliance Pipeline",
-        "operator": "Enbridge",
-        "diameter_inches": 36,
-        "capacity_bcfd": 1.6,
-        "utilization_pct": 62,
+        "name": "Gillis Access Pipeline",
+        "operator": "TC Energy",
+        "pipeline_type": "connector",
+        "diameter_inches": 42,
+        "capacity_bcfd": 1.5,
+        "utilization_pct": 65,
+        "maop_psig": 1440,
+        "typical_pressure_psig": 1100,
         "status": "operational",
-        "region": "Canada to Chicago",
-        "year_built": 2000,
-        "length_miles": 1875,
-        "interconnects": ["Alberta", "Chicago Hub"],
-        "ferc_regulated": true
+        "region": "Gillis Hub to Gulf Coast LNG",
+        "year_built": 2024,
+        "length_miles": 120,
+        "connects_from": "Gillis Hub",
+        "connects_to": "Multiple LNG terminals",
+        "ferc_regulated": true,
+        "line_weight": "medium"
       },
       "geometry": {
         "type": "LineString",
         "coordinates": [
-          [-110.00, 52.00],
-          [-108.00, 50.50],
-          [-105.00, 49.00],
-          [-100.00, 48.00],
-          [-97.20, 49.00],
-          [-96.50, 47.50],
-          [-95.80, 46.20],
-          [-94.50, 44.80],
-          [-93.20, 43.50],
-          [-91.00, 42.50],
-          [-88.50, 41.80]
+          [
+            -92.8,
+            30.2
+          ],
+          [
+            -92.5,
+            30.1
+          ],
+          [
+            -92.2,
+            30.0
+          ],
+          [
+            -91.8,
+            29.9
+          ],
+          [
+            -91.5,
+            29.8
+          ]
         ]
       }
     },
@@ -431,30 +788,70 @@
         "id": 14,
         "name": "ANR Pipeline",
         "operator": "TC Energy",
+        "pipeline_type": "interstate_header",
         "diameter_inches": 42,
         "capacity_bcfd": 2.7,
         "utilization_pct": 79,
+        "maop_psig": 1440,
+        "typical_pressure_psig": 1100,
         "status": "operational",
-        "region": "Gulf Coast to Midwest",
+        "region": "Gulf Coast to Midwest/Great Lakes",
         "year_built": 1957,
-        "length_miles": 1100,
-        "interconnects": ["Louisiana", "Oklahoma", "Michigan"],
-        "ferc_regulated": true
+        "length_miles": 8700,
+        "connects_to": [
+          "Creole Trail",
+          "Sabine Pass LNG"
+        ],
+        "ferc_regulated": true,
+        "line_weight": "heavy"
       },
       "geometry": {
         "type": "LineString",
         "coordinates": [
-          [-93.50, 29.80],
-          [-93.00, 31.00],
-          [-92.50, 32.20],
-          [-92.00, 33.50],
-          [-91.50, 34.50],
-          [-90.50, 36.00],
-          [-89.20, 37.80],
-          [-88.00, 39.50],
-          [-87.50, 40.20],
-          [-86.50, 41.50],
-          [-85.80, 42.50]
+          [
+            -93.5,
+            29.8
+          ],
+          [
+            -93.0,
+            31.0
+          ],
+          [
+            -92.5,
+            32.2
+          ],
+          [
+            -92.0,
+            33.5
+          ],
+          [
+            -91.5,
+            34.5
+          ],
+          [
+            -90.5,
+            36.0
+          ],
+          [
+            -89.2,
+            37.8
+          ],
+          [
+            -88.0,
+            39.5
+          ],
+          [
+            -87.5,
+            40.2
+          ],
+          [
+            -86.5,
+            41.5
+          ],
+          [
+            -85.8,
+            42.5
+          ]
         ]
       }
     },
@@ -462,31 +859,71 @@
       "type": "Feature",
       "properties": {
         "id": 15,
-        "name": "Northern Natural Gas",
-        "operator": "Berkshire Hathaway Energy",
-        "diameter_inches": 36,
-        "capacity_bcfd": 2.4,
-        "utilization_pct": 65,
+        "name": "Columbia Gulf Transmission",
+        "operator": "TC Energy",
+        "pipeline_type": "interstate_header",
+        "diameter_inches": 42,
+        "capacity_bcfd": 3.0,
+        "utilization_pct": 78,
+        "maop_psig": 1200,
+        "typical_pressure_psig": 950,
         "status": "operational",
-        "region": "Permian to Upper Midwest",
-        "year_built": 1944,
-        "length_miles": 1500,
-        "interconnects": ["Permian Basin", "Minneapolis"],
-        "ferc_regulated": true
+        "region": "Gulf Coast to Appalachia",
+        "year_built": 1963,
+        "length_miles": 5400,
+        "connects_to": [
+          "Columbia Gas Transmission"
+        ],
+        "ferc_regulated": true,
+        "line_weight": "heavy"
       },
       "geometry": {
         "type": "LineString",
         "coordinates": [
-          [-102.00, 32.00],
-          [-101.00, 34.00],
-          [-100.00, 36.00],
-          [-99.00, 38.00],
-          [-98.00, 40.00],
-          [-97.00, 41.50],
-          [-96.00, 42.50],
-          [-95.00, 43.50],
-          [-94.00, 44.50],
-          [-93.50, 45.00]
+          [
+            -90.5,
+            29.5
+          ],
+          [
+            -90.0,
+            30.0
+          ],
+          [
+            -89.2,
+            30.8
+          ],
+          [
+            -88.5,
+            31.8
+          ],
+          [
+            -88.0,
+            32.5
+          ],
+          [
+            -87.5,
+            33.5
+          ],
+          [
+            -87.2,
+            34.0
+          ],
+          [
+            -86.5,
+            35.0
+          ],
+          [
+            -85.8,
+            36.2
+          ],
+          [
+            -85.0,
+            37.5
+          ],
+          [
+            -84.0,
+            38.5
+          ]
         ]
       }
     },
@@ -494,37 +931,79 @@
       "type": "Feature",
       "properties": {
         "id": 16,
-        "name": "Rockies Express Pipeline (REX)",
-        "operator": "Tallgrass Energy",
-        "diameter_inches": 42,
+        "name": "Florida Gas Transmission",
+        "operator": "Kinder Morgan",
+        "pipeline_type": "interstate_header",
+        "diameter_inches": 30,
         "capacity_bcfd": 1.8,
-        "utilization_pct": 58,
+        "utilization_pct": 71,
+        "maop_psig": 1000,
+        "typical_pressure_psig": 800,
         "status": "operational",
-        "region": "Colorado to Ohio",
-        "year_built": 2009,
-        "length_miles": 1700,
-        "interconnects": ["Opal Hub", "Clarington Hub"],
-        "ferc_regulated": true
+        "region": "Texas to Florida",
+        "year_built": 1959,
+        "length_miles": 5300,
+        "connects_to": [
+          "Sabal Trail"
+        ],
+        "ferc_regulated": true,
+        "line_weight": "heavy"
       },
       "geometry": {
         "type": "LineString",
         "coordinates": [
-          [-110.00, 41.20],
-          [-108.00, 41.00],
-          [-106.00, 40.80],
-          [-104.00, 40.50],
-          [-102.00, 40.30],
-          [-100.00, 40.10],
-          [-98.00, 40.00],
-          [-96.00, 39.90],
-          [-94.00, 39.80],
-          [-92.00, 39.70],
-          [-90.00, 39.60],
-          [-88.00, 39.80],
-          [-86.00, 40.00],
-          [-84.00, 40.10],
-          [-82.00, 40.00],
-          [-81.00, 39.90]
+          [
+            -94.5,
+            30.0
+          ],
+          [
+            -92.5,
+            30.2
+          ],
+          [
+            -90.5,
+            30.3
+          ],
+          [
+            -88.5,
+            30.4
+          ],
+          [
+            -87.0,
+            30.5
+          ],
+          [
+            -86.0,
+            30.4
+          ],
+          [
+            -85.0,
+            30.2
+          ],
+          [
+            -84.0,
+            30.0
+          ],
+          [
+            -83.0,
+            29.5
+          ],
+          [
+            -82.0,
+            28.8
+          ],
+          [
+            -81.5,
+            28.0
+          ],
+          [
+            -80.5,
+            27.0
+          ],
+          [
+            -80.2,
+            26.0
+          ]
         ]
       }
     },
@@ -532,34 +1011,57 @@
       "type": "Feature",
       "properties": {
         "id": 17,
-        "name": "Tennessee Gas Pipeline",
-        "operator": "Kinder Morgan",
+        "name": "Sabal Trail Pipeline",
+        "operator": "Enbridge",
+        "pipeline_type": "regional_transmission",
         "diameter_inches": 36,
-        "capacity_bcfd": 2.1,
-        "utilization_pct": 88,
+        "capacity_bcfd": 1.1,
+        "utilization_pct": 81,
+        "maop_psig": 1456,
+        "typical_pressure_psig": 1150,
         "status": "operational",
-        "region": "Gulf Coast to Northeast",
-        "year_built": 1944,
-        "length_miles": 1200,
-        "interconnects": ["Louisiana", "Tennessee", "Pennsylvania", "Massachusetts"],
-        "ferc_regulated": true
+        "region": "Alabama to Central Florida",
+        "year_built": 2017,
+        "length_miles": 515,
+        "connects_from": [
+          "Southern Natural Gas",
+          "Transco"
+        ],
+        "connects_to": "Florida Gas Transmission",
+        "ferc_regulated": true,
+        "line_weight": "medium"
       },
       "geometry": {
         "type": "LineString",
         "coordinates": [
-          [-93.50, 30.00],
-          [-91.50, 31.50],
-          [-89.50, 33.00],
-          [-87.50, 34.50],
-          [-86.00, 36.00],
-          [-84.50, 37.50],
-          [-82.50, 38.50],
-          [-80.50, 39.80],
-          [-78.50, 40.80],
-          [-76.50, 41.50],
-          [-74.50, 42.00],
-          [-72.50, 42.20],
-          [-71.00, 42.30]
+          [
+            -85.0,
+            32.5
+          ],
+          [
+            -84.5,
+            31.8
+          ],
+          [
+            -84.0,
+            31.0
+          ],
+          [
+            -83.5,
+            30.5
+          ],
+          [
+            -83.0,
+            30.0
+          ],
+          [
+            -82.5,
+            29.5
+          ],
+          [
+            -82.0,
+            29.0
+          ]
         ]
       }
     },
@@ -567,26 +1069,74 @@
       "type": "Feature",
       "properties": {
         "id": 18,
-        "name": "Dominion Energy Cove Point",
-        "operator": "Dominion Energy",
-        "diameter_inches": 36,
-        "capacity_bcfd": 1.8,
-        "utilization_pct": 83,
+        "name": "Permian Highway Pipeline",
+        "operator": "Kinder Morgan",
+        "pipeline_type": "regional_transmission",
+        "diameter_inches": 42,
+        "capacity_bcfd": 2.65,
+        "utilization_pct": 67,
+        "maop_psig": 1440,
+        "typical_pressure_psig": 1100,
         "status": "operational",
-        "region": "Appalachia to Cove Point LNG",
-        "year_built": 1972,
-        "length_miles": 200,
-        "interconnects": ["Appalachian Basin", "Cove Point LNG Terminal"],
-        "ferc_regulated": true
+        "region": "Waha Hub to Katy/Gulf Coast",
+        "year_built": 2020,
+        "length_miles": 430,
+        "connects_from": "Waha Hub (Permian Basin)",
+        "connects_to": [
+          "Katy Hub",
+          "Gulf Coast markets",
+          "Mexico"
+        ],
+        "ferc_regulated": true,
+        "line_weight": "medium"
       },
       "geometry": {
         "type": "LineString",
         "coordinates": [
-          [-79.50, 39.50],
-          [-78.50, 39.20],
-          [-77.80, 38.80],
-          [-77.00, 38.50],
-          [-76.50, 38.40]
+          [
+            -103.5,
+            31.8
+          ],
+          [
+            -102.8,
+            31.5
+          ],
+          [
+            -102.1,
+            31.2
+          ],
+          [
+            -101.3,
+            31.0
+          ],
+          [
+            -100.5,
+            30.8
+          ],
+          [
+            -99.8,
+            30.4
+          ],
+          [
+            -99.2,
+            30.1
+          ],
+          [
+            -98.8,
+            29.8
+          ],
+          [
+            -98.5,
+            29.4
+          ],
+          [
+            -97.0,
+            29.5
+          ],
+          [
+            -95.8,
+            29.7
+          ]
         ]
       }
     },
@@ -594,26 +1144,62 @@
       "type": "Feature",
       "properties": {
         "id": 19,
-        "name": "Mountain Valley Pipeline",
-        "operator": "Equitrans Midstream",
+        "name": "Gulf Coast Express Pipeline",
+        "operator": "Kinder Morgan",
+        "pipeline_type": "regional_transmission",
         "diameter_inches": 42,
         "capacity_bcfd": 2.0,
-        "utilization_pct": 35,
+        "utilization_pct": 72,
+        "maop_psig": 1440,
+        "typical_pressure_psig": 1100,
         "status": "operational",
-        "region": "West Virginia to Virginia",
-        "year_built": 2024,
-        "length_miles": 303,
-        "interconnects": ["Appalachian Basin", "Transco"],
-        "ferc_regulated": true
+        "region": "Waha Hub to Agua Dulce",
+        "year_built": 2019,
+        "length_miles": 500,
+        "connects_from": "Waha Hub (Permian Basin)",
+        "connects_to": "Agua Dulce Hub",
+        "ferc_regulated": true,
+        "line_weight": "medium"
       },
       "geometry": {
         "type": "LineString",
         "coordinates": [
-          [-80.50, 39.20],
-          [-80.20, 38.50],
-          [-80.00, 37.80],
-          [-79.80, 37.20],
-          [-79.90, 36.80]
+          [
+            -103.4,
+            31.7
+          ],
+          [
+            -102.5,
+            31.3
+          ],
+          [
+            -101.5,
+            30.9
+          ],
+          [
+            -100.5,
+            30.5
+          ],
+          [
+            -99.5,
+            30.0
+          ],
+          [
+            -98.5,
+            29.5
+          ],
+          [
+            -97.8,
+            28.8
+          ],
+          [
+            -97.5,
+            28.2
+          ],
+          [
+            -97.8,
+            27.8
+          ]
         ]
       }
     },
@@ -621,27 +1207,58 @@
       "type": "Feature",
       "properties": {
         "id": 20,
-        "name": "Rover Pipeline",
-        "operator": "Energy Transfer",
+        "name": "Matterhorn Express Pipeline",
+        "operator": "Whitewater Midstream",
+        "pipeline_type": "regional_transmission",
         "diameter_inches": 42,
-        "capacity_bcfd": 3.25,
-        "utilization_pct": 74,
+        "capacity_bcfd": 2.5,
+        "utilization_pct": 45,
+        "maop_psig": 1440,
+        "typical_pressure_psig": 1100,
         "status": "operational",
-        "region": "Appalachia to Midwest",
-        "year_built": 2018,
-        "length_miles": 700,
-        "interconnects": ["Appalachian Basin", "Dawn Hub (Canada)"],
-        "ferc_regulated": true
+        "region": "Permian Basin to Katy",
+        "year_built": 2024,
+        "length_miles": 490,
+        "connects_from": "Permian Basin",
+        "connects_to": "Katy Hub",
+        "ferc_regulated": true,
+        "line_weight": "medium"
       },
       "geometry": {
         "type": "LineString",
         "coordinates": [
-          [-81.00, 39.50],
-          [-81.50, 40.00],
-          [-82.00, 40.50],
-          [-82.80, 41.00],
-          [-83.50, 41.50],
-          [-84.00, 41.80]
+          [
+            -103.2,
+            31.6
+          ],
+          [
+            -102.0,
+            31.2
+          ],
+          [
+            -100.8,
+            30.8
+          ],
+          [
+            -99.6,
+            30.4
+          ],
+          [
+            -98.4,
+            30.0
+          ],
+          [
+            -97.2,
+            29.8
+          ],
+          [
+            -96.0,
+            29.75
+          ],
+          [
+            -95.0,
+            29.78
+          ]
         ]
       }
     },
@@ -649,28 +1266,57 @@
       "type": "Feature",
       "properties": {
         "id": 21,
-        "name": "Kern River Gas Transmission",
-        "operator": "Berkshire Hathaway Energy",
-        "diameter_inches": 36,
+        "name": "Whistler Pipeline",
+        "operator": "Whitewater Midstream",
+        "pipeline_type": "regional_transmission",
+        "diameter_inches": 42,
         "capacity_bcfd": 2.0,
-        "utilization_pct": 61,
+        "utilization_pct": 68,
+        "maop_psig": 1440,
+        "typical_pressure_psig": 1100,
         "status": "operational",
-        "region": "Wyoming to California",
-        "year_built": 1992,
-        "length_miles": 920,
-        "interconnects": ["Opal Hub", "California"],
-        "ferc_regulated": true
+        "region": "Permian to Agua Dulce/Corpus",
+        "year_built": 2021,
+        "length_miles": 450,
+        "connects_from": "Waha Hub",
+        "connects_to": [
+          "Agua Dulce Hub",
+          "Corpus Christi LNG area"
+        ],
+        "ferc_regulated": true,
+        "line_weight": "medium"
       },
       "geometry": {
         "type": "LineString",
         "coordinates": [
-          [-110.00, 41.50],
-          [-111.50, 40.50],
-          [-112.50, 39.50],
-          [-114.00, 38.00],
-          [-115.50, 36.50],
-          [-117.00, 35.50],
-          [-118.50, 35.00]
+          [
+            -103.3,
+            31.5
+          ],
+          [
+            -102.2,
+            31.0
+          ],
+          [
+            -101.0,
+            30.5
+          ],
+          [
+            -99.8,
+            30.0
+          ],
+          [
+            -98.6,
+            29.4
+          ],
+          [
+            -97.8,
+            28.6
+          ],
+          [
+            -97.6,
+            27.9
+          ]
         ]
       }
     },
@@ -678,28 +1324,52 @@
       "type": "Feature",
       "properties": {
         "id": 22,
-        "name": "Gulf South Pipeline",
-        "operator": "Boardwalk Pipeline",
-        "diameter_inches": 30,
-        "capacity_bcfd": 1.5,
-        "utilization_pct": 69,
+        "name": "ADCC Pipeline",
+        "operator": "Whitewater Midstream",
+        "pipeline_type": "lng_feed",
+        "diameter_inches": 42,
+        "capacity_bcfd": 1.7,
+        "utilization_pct": 60,
+        "maop_psig": 1440,
+        "typical_pressure_psig": 1100,
         "status": "operational",
-        "region": "East Texas to Florida",
-        "year_built": 1954,
-        "length_miles": 800,
-        "interconnects": ["Carthage Hub", "Mobile Bay"],
-        "ferc_regulated": true
+        "region": "To Corpus Christi LNG Stage 3",
+        "year_built": 2024,
+        "length_miles": 100,
+        "connects_from": "Agua Dulce Hub",
+        "connects_to": "Corpus Christi LNG Stage 3",
+        "ferc_regulated": true,
+        "line_weight": "medium",
+        "facility_served": {
+          "name": "Corpus Christi LNG Stage 3",
+          "type": "LNG Export",
+          "capacity_mtpa": 10,
+          "operator": "Cheniere Energy"
+        }
       },
       "geometry": {
         "type": "LineString",
         "coordinates": [
-          [-94.00, 32.00],
-          [-93.00, 31.80],
-          [-92.00, 31.50],
-          [-91.00, 31.20],
-          [-90.00, 31.00],
-          [-89.00, 30.80],
-          [-88.00, 30.70]
+          [
+            -97.8,
+            27.8
+          ],
+          [
+            -97.6,
+            27.7
+          ],
+          [
+            -97.4,
+            27.65
+          ],
+          [
+            -97.2,
+            27.7
+          ],
+          [
+            -97.1,
+            27.8
+          ]
         ]
       }
     },
@@ -707,28 +1377,50 @@
       "type": "Feature",
       "properties": {
         "id": 23,
-        "name": "Midcontinent Express Pipeline",
-        "operator": "Kinder Morgan",
+        "name": "Valley Crossing Pipeline",
+        "operator": "Enbridge",
+        "pipeline_type": "regional_transmission",
         "diameter_inches": 42,
-        "capacity_bcfd": 1.8,
-        "utilization_pct": 77,
+        "capacity_bcfd": 2.6,
+        "utilization_pct": 75,
+        "maop_psig": 1480,
+        "typical_pressure_psig": 1200,
         "status": "operational",
-        "region": "Oklahoma to Alabama",
-        "year_built": 2009,
-        "length_miles": 500,
-        "interconnects": ["Bennington Hub", "Transco"],
-        "ferc_regulated": true
+        "region": "Texas to Mexico (Sur de Texas-Tuxpan)",
+        "year_built": 2019,
+        "length_miles": 168,
+        "connects_from": "Agua Dulce Hub",
+        "connects_to": "Mexico (Sur de Texas-Tuxpan pipeline)",
+        "ferc_regulated": true,
+        "line_weight": "medium"
       },
       "geometry": {
         "type": "LineString",
         "coordinates": [
-          [-96.00, 34.00],
-          [-94.50, 33.50],
-          [-93.00, 33.00],
-          [-91.50, 32.50],
-          [-90.00, 32.20],
-          [-88.50, 32.00],
-          [-87.50, 32.50]
+          [
+            -97.8,
+            27.8
+          ],
+          [
+            -97.5,
+            27.5
+          ],
+          [
+            -97.3,
+            27.2
+          ],
+          [
+            -97.2,
+            26.8
+          ],
+          [
+            -97.3,
+            26.5
+          ],
+          [
+            -97.5,
+            26.2
+          ]
         ]
       }
     },
@@ -736,28 +1428,64 @@
       "type": "Feature",
       "properties": {
         "id": 24,
-        "name": "Sabal Trail Pipeline",
-        "operator": "Enbridge",
-        "diameter_inches": 36,
-        "capacity_bcfd": 1.1,
-        "utilization_pct": 81,
+        "name": "El Paso Natural Gas Pipeline",
+        "operator": "Kinder Morgan",
+        "pipeline_type": "interstate_header",
+        "diameter_inches": 30,
+        "capacity_bcfd": 5.6,
+        "utilization_pct": 68,
+        "maop_psig": 1200,
+        "typical_pressure_psig": 950,
         "status": "operational",
-        "region": "Alabama to Florida",
-        "year_built": 2017,
-        "length_miles": 515,
-        "interconnects": ["Transco", "Florida Gas Transmission"],
-        "ferc_regulated": true
+        "region": "Texas to California",
+        "year_built": 1947,
+        "length_miles": 10000,
+        "connects_to": [
+          "Southern California markets",
+          "Arizona utilities"
+        ],
+        "ferc_regulated": true,
+        "line_weight": "heavy"
       },
       "geometry": {
         "type": "LineString",
         "coordinates": [
-          [-85.00, 32.50],
-          [-84.50, 31.80],
-          [-84.00, 31.00],
-          [-83.50, 30.50],
-          [-83.00, 30.00],
-          [-82.50, 29.50],
-          [-82.00, 29.00]
+          [
+            -103.0,
+            31.5
+          ],
+          [
+            -104.5,
+            31.8
+          ],
+          [
+            -106.5,
+            31.8
+          ],
+          [
+            -108.2,
+            32.5
+          ],
+          [
+            -110.5,
+            33.2
+          ],
+          [
+            -112.8,
+            33.5
+          ],
+          [
+            -115.2,
+            34.0
+          ],
+          [
+            -117.0,
+            34.2
+          ],
+          [
+            -118.2,
+            34.1
+          ]
         ]
       }
     },
@@ -765,29 +1493,64 @@
       "type": "Feature",
       "properties": {
         "id": 25,
-        "name": "Algonquin Gas Transmission",
-        "operator": "Enbridge",
-        "diameter_inches": 30,
-        "capacity_bcfd": 1.2,
-        "utilization_pct": 89,
+        "name": "Transwestern Pipeline",
+        "operator": "Energy Transfer",
+        "pipeline_type": "interstate_header",
+        "diameter_inches": 36,
+        "capacity_bcfd": 2.1,
+        "utilization_pct": 73,
+        "maop_psig": 1050,
+        "typical_pressure_psig": 850,
         "status": "operational",
-        "region": "New Jersey to Massachusetts",
-        "year_built": 1953,
-        "length_miles": 250,
-        "interconnects": ["Texas Eastern", "New England Market"],
-        "ferc_regulated": true
+        "region": "West Texas to California",
+        "year_built": 1960,
+        "length_miles": 2500,
+        "connects_to": [
+          "Pacific Gas & Electric",
+          "Southern California Gas"
+        ],
+        "ferc_regulated": true,
+        "line_weight": "heavy"
       },
       "geometry": {
         "type": "LineString",
         "coordinates": [
-          [-74.20, 40.80],
-          [-73.80, 41.00],
-          [-73.20, 41.20],
-          [-72.50, 41.40],
-          [-71.80, 41.60],
-          [-71.20, 41.80],
-          [-70.80, 42.00],
-          [-70.50, 42.30]
+          [
+            -102.5,
+            32.0
+          ],
+          [
+            -104.0,
+            32.2
+          ],
+          [
+            -106.0,
+            32.3
+          ],
+          [
+            -108.0,
+            32.5
+          ],
+          [
+            -110.0,
+            33.0
+          ],
+          [
+            -112.0,
+            33.5
+          ],
+          [
+            -114.0,
+            34.0
+          ],
+          [
+            -116.0,
+            34.2
+          ],
+          [
+            -117.5,
+            34.0
+          ]
         ]
       }
     },
@@ -795,27 +1558,54 @@
       "type": "Feature",
       "properties": {
         "id": 26,
-        "name": "Cheyenne Plains Pipeline",
-        "operator": "Tallgrass Energy",
+        "name": "Kern River Gas Transmission",
+        "operator": "Berkshire Hathaway Energy",
+        "pipeline_type": "interstate_header",
         "diameter_inches": 36,
-        "capacity_bcfd": 0.85,
-        "utilization_pct": 52,
+        "capacity_bcfd": 2.0,
+        "utilization_pct": 61,
+        "maop_psig": 1480,
+        "typical_pressure_psig": 1150,
         "status": "operational",
-        "region": "Wyoming to Kansas",
-        "year_built": 2005,
-        "length_miles": 380,
-        "interconnects": ["Cheyenne Hub", "Northern Natural Gas"],
-        "ferc_regulated": true
+        "region": "Wyoming to California",
+        "year_built": 1992,
+        "length_miles": 1680,
+        "connects_from": "Opal Hub",
+        "connects_to": "California markets",
+        "ferc_regulated": true,
+        "line_weight": "heavy"
       },
       "geometry": {
         "type": "LineString",
         "coordinates": [
-          [-105.00, 41.00],
-          [-104.00, 40.50],
-          [-103.00, 40.00],
-          [-102.00, 39.50],
-          [-101.00, 39.00],
-          [-100.00, 38.50]
+          [
+            -110.0,
+            41.5
+          ],
+          [
+            -111.5,
+            40.5
+          ],
+          [
+            -112.5,
+            39.5
+          ],
+          [
+            -114.0,
+            38.0
+          ],
+          [
+            -115.5,
+            36.5
+          ],
+          [
+            -117.0,
+            35.5
+          ],
+          [
+            -118.5,
+            35.0
+          ]
         ]
       }
     },
@@ -823,30 +1613,78 @@
       "type": "Feature",
       "properties": {
         "id": 27,
-        "name": "Trunkline Gas Pipeline",
-        "operator": "Energy Transfer",
+        "name": "Northwest Pipeline",
+        "operator": "Williams",
+        "pipeline_type": "interstate_header",
         "diameter_inches": 36,
-        "capacity_bcfd": 1.9,
-        "utilization_pct": 72,
+        "capacity_bcfd": 3.8,
+        "utilization_pct": 54,
+        "maop_psig": 1200,
+        "typical_pressure_psig": 950,
         "status": "operational",
-        "region": "Gulf Coast to Midwest",
-        "year_built": 1951,
-        "length_miles": 1400,
-        "interconnects": ["Louisiana", "Illinois"],
-        "ferc_regulated": true
+        "region": "Rocky Mountains to Pacific Northwest",
+        "year_built": 1956,
+        "length_miles": 3900,
+        "connects_from": "Opal Hub",
+        "connects_to": [
+          "Seattle",
+          "Portland",
+          "Sumas (Canada)"
+        ],
+        "ferc_regulated": true,
+        "line_weight": "heavy"
       },
       "geometry": {
         "type": "LineString",
         "coordinates": [
-          [-92.00, 30.00],
-          [-91.50, 31.50],
-          [-91.00, 33.00],
-          [-90.50, 34.50],
-          [-90.00, 36.00],
-          [-89.50, 37.50],
-          [-89.00, 39.00],
-          [-88.50, 40.50],
-          [-88.00, 41.50]
+          [
+            -110.0,
+            41.5
+          ],
+          [
+            -111.5,
+            42.0
+          ],
+          [
+            -113.0,
+            42.5
+          ],
+          [
+            -115.0,
+            43.5
+          ],
+          [
+            -117.0,
+            44.5
+          ],
+          [
+            -118.5,
+            45.5
+          ],
+          [
+            -120.0,
+            45.8
+          ],
+          [
+            -121.5,
+            45.5
+          ],
+          [
+            -122.5,
+            45.6
+          ],
+          [
+            -122.8,
+            46.5
+          ],
+          [
+            -122.5,
+            47.5
+          ],
+          [
+            -122.3,
+            48.5
+          ]
         ]
       }
     },
@@ -854,32 +1692,54 @@
       "type": "Feature",
       "properties": {
         "id": 28,
-        "name": "Panhandle Eastern Pipeline",
-        "operator": "Energy Transfer",
-        "diameter_inches": 36,
-        "capacity_bcfd": 1.7,
-        "utilization_pct": 68,
+        "name": "Ruby Pipeline",
+        "operator": "Tallgrass Energy",
+        "pipeline_type": "interstate_header",
+        "diameter_inches": 42,
+        "capacity_bcfd": 1.5,
+        "utilization_pct": 45,
+        "maop_psig": 1480,
+        "typical_pressure_psig": 1150,
         "status": "operational",
-        "region": "Texas Panhandle to Indiana",
-        "year_built": 1944,
-        "length_miles": 1100,
-        "interconnects": ["Panhandle Hub", "Michigan"],
-        "ferc_regulated": true
+        "region": "Wyoming to Oregon",
+        "year_built": 2011,
+        "length_miles": 680,
+        "connects_from": "Opal Hub",
+        "connects_to": "Malin Hub (California/Oregon border)",
+        "ferc_regulated": true,
+        "line_weight": "heavy"
       },
       "geometry": {
         "type": "LineString",
         "coordinates": [
-          [-101.00, 35.50],
-          [-100.00, 36.50],
-          [-99.00, 37.50],
-          [-98.00, 38.50],
-          [-97.00, 39.00],
-          [-95.50, 39.20],
-          [-94.00, 39.30],
-          [-92.00, 39.50],
-          [-90.00, 39.80],
-          [-88.00, 40.00],
-          [-86.50, 40.20]
+          [
+            -110.5,
+            41.3
+          ],
+          [
+            -112.0,
+            41.0
+          ],
+          [
+            -114.0,
+            41.2
+          ],
+          [
+            -116.0,
+            41.5
+          ],
+          [
+            -118.0,
+            41.8
+          ],
+          [
+            -119.5,
+            42.0
+          ],
+          [
+            -121.0,
+            42.0
+          ]
         ]
       }
     },
@@ -887,30 +1747,90 @@
       "type": "Feature",
       "properties": {
         "id": 29,
-        "name": "Natural Gas Pipeline of America (NGPL)",
-        "operator": "Kinder Morgan",
-        "diameter_inches": 36,
-        "capacity_bcfd": 2.3,
-        "utilization_pct": 75,
+        "name": "Rockies Express Pipeline (REX)",
+        "operator": "Tallgrass Energy",
+        "pipeline_type": "interstate_header",
+        "diameter_inches": 42,
+        "capacity_bcfd": 1.8,
+        "utilization_pct": 58,
+        "maop_psig": 1480,
+        "typical_pressure_psig": 1150,
         "status": "operational",
-        "region": "Gulf Coast to Chicago",
-        "year_built": 1960,
-        "length_miles": 1200,
-        "interconnects": ["Permian Basin", "Chicago Hub"],
-        "ferc_regulated": true
+        "region": "Colorado to Ohio",
+        "year_built": 2009,
+        "length_miles": 1700,
+        "connects_from": "Cheyenne Hub / Opal Hub",
+        "connects_to": "Clarington Hub (Ohio)",
+        "ferc_regulated": true,
+        "line_weight": "heavy"
       },
       "geometry": {
         "type": "LineString",
         "coordinates": [
-          [-102.00, 32.50],
-          [-100.00, 34.00],
-          [-98.00, 35.50],
-          [-96.00, 37.00],
-          [-94.50, 38.50],
-          [-93.00, 39.50],
-          [-91.00, 40.50],
-          [-89.50, 41.50],
-          [-88.00, 41.80]
+          [
+            -110.0,
+            41.2
+          ],
+          [
+            -108.0,
+            41.0
+          ],
+          [
+            -106.0,
+            40.8
+          ],
+          [
+            -104.0,
+            40.5
+          ],
+          [
+            -102.0,
+            40.3
+          ],
+          [
+            -100.0,
+            40.1
+          ],
+          [
+            -98.0,
+            40.0
+          ],
+          [
+            -96.0,
+            39.9
+          ],
+          [
+            -94.0,
+            39.8
+          ],
+          [
+            -92.0,
+            39.7
+          ],
+          [
+            -90.0,
+            39.6
+          ],
+          [
+            -88.0,
+            39.8
+          ],
+          [
+            -86.0,
+            40.0
+          ],
+          [
+            -84.0,
+            40.1
+          ],
+          [
+            -82.0,
+            40.0
+          ],
+          [
+            -81.0,
+            39.9
+          ]
         ]
       }
     },
@@ -918,30 +1838,1990 @@
       "type": "Feature",
       "properties": {
         "id": 30,
-        "name": "Eastern Gas Transmission (Equitrans)",
-        "operator": "Equitrans Midstream",
-        "diameter_inches": 30,
-        "capacity_bcfd": 1.4,
-        "utilization_pct": 71,
+        "name": "Northern Natural Gas",
+        "operator": "Berkshire Hathaway Energy",
+        "pipeline_type": "interstate_header",
+        "diameter_inches": 36,
+        "capacity_bcfd": 5.0,
+        "utilization_pct": 65,
+        "maop_psig": 1000,
+        "typical_pressure_psig": 800,
         "status": "operational",
-        "region": "Appalachian Basin",
-        "year_built": 1950,
-        "length_miles": 600,
-        "interconnects": ["Appalachian Basin", "Dominion"],
-        "ferc_regulated": true
+        "region": "Permian to Upper Midwest",
+        "year_built": 1944,
+        "length_miles": 14700,
+        "connects_to": [
+          "Minneapolis",
+          "Chicago area",
+          "Upper Midwest utilities"
+        ],
+        "ferc_regulated": true,
+        "line_weight": "heavy"
       },
       "geometry": {
         "type": "LineString",
         "coordinates": [
-          [-80.50, 39.00],
-          [-80.00, 39.50],
-          [-79.50, 40.00],
-          [-79.00, 40.50],
-          [-78.50, 41.00],
-          [-78.00, 41.50],
-          [-77.50, 42.00]
+          [
+            -102.0,
+            32.0
+          ],
+          [
+            -101.0,
+            34.0
+          ],
+          [
+            -100.0,
+            36.0
+          ],
+          [
+            -99.0,
+            38.0
+          ],
+          [
+            -98.0,
+            40.0
+          ],
+          [
+            -97.0,
+            41.5
+          ],
+          [
+            -96.0,
+            42.5
+          ],
+          [
+            -95.0,
+            43.5
+          ],
+          [
+            -94.0,
+            44.5
+          ],
+          [
+            -93.5,
+            45.0
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 31,
+        "name": "Alliance Pipeline (US Portion)",
+        "operator": "Enbridge",
+        "pipeline_type": "interstate_header",
+        "diameter_inches": 36,
+        "capacity_bcfd": 1.6,
+        "utilization_pct": 62,
+        "maop_psig": 1740,
+        "typical_pressure_psig": 1400,
+        "status": "operational",
+        "region": "Canada to Chicago",
+        "year_built": 2000,
+        "length_miles": 1563,
+        "connects_from": "Western Canadian Sedimentary Basin",
+        "connects_to": "Chicago Hub",
+        "ferc_regulated": true,
+        "line_weight": "heavy"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -110.0,
+            52.0
+          ],
+          [
+            -108.0,
+            50.5
+          ],
+          [
+            -105.0,
+            49.0
+          ],
+          [
+            -100.0,
+            48.0
+          ],
+          [
+            -97.2,
+            49.0
+          ],
+          [
+            -96.5,
+            47.5
+          ],
+          [
+            -95.8,
+            46.2
+          ],
+          [
+            -94.5,
+            44.8
+          ],
+          [
+            -93.2,
+            43.5
+          ],
+          [
+            -91.0,
+            42.5
+          ],
+          [
+            -88.5,
+            41.8
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 32,
+        "name": "Natural Gas Pipeline of America (NGPL)",
+        "operator": "Kinder Morgan",
+        "pipeline_type": "interstate_header",
+        "diameter_inches": 36,
+        "capacity_bcfd": 6.5,
+        "utilization_pct": 75,
+        "maop_psig": 1000,
+        "typical_pressure_psig": 800,
+        "status": "operational",
+        "region": "Gulf Coast/Permian to Chicago",
+        "year_built": 1960,
+        "length_miles": 9100,
+        "connects_to": [
+          "Chicago Hub",
+          "Multiple LNG facilities"
+        ],
+        "ferc_regulated": true,
+        "line_weight": "heavy"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -102.0,
+            32.5
+          ],
+          [
+            -100.0,
+            34.0
+          ],
+          [
+            -98.0,
+            35.5
+          ],
+          [
+            -96.0,
+            37.0
+          ],
+          [
+            -94.5,
+            38.5
+          ],
+          [
+            -93.0,
+            39.5
+          ],
+          [
+            -91.0,
+            40.5
+          ],
+          [
+            -89.5,
+            41.5
+          ],
+          [
+            -88.0,
+            41.8
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 33,
+        "name": "Trunkline Gas Pipeline",
+        "operator": "Energy Transfer",
+        "pipeline_type": "interstate_header",
+        "diameter_inches": 36,
+        "capacity_bcfd": 1.9,
+        "utilization_pct": 72,
+        "maop_psig": 1000,
+        "typical_pressure_psig": 800,
+        "status": "operational",
+        "region": "Gulf Coast to Midwest",
+        "year_built": 1951,
+        "length_miles": 1400,
+        "connects_to": [
+          "Chicago area",
+          "Michigan"
+        ],
+        "ferc_regulated": true,
+        "line_weight": "heavy"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -92.0,
+            30.0
+          ],
+          [
+            -91.5,
+            31.5
+          ],
+          [
+            -91.0,
+            33.0
+          ],
+          [
+            -90.5,
+            34.5
+          ],
+          [
+            -90.0,
+            36.0
+          ],
+          [
+            -89.5,
+            37.5
+          ],
+          [
+            -89.0,
+            39.0
+          ],
+          [
+            -88.5,
+            40.5
+          ],
+          [
+            -88.0,
+            41.5
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 34,
+        "name": "Panhandle Eastern Pipeline",
+        "operator": "Energy Transfer",
+        "pipeline_type": "interstate_header",
+        "diameter_inches": 36,
+        "capacity_bcfd": 2.4,
+        "utilization_pct": 68,
+        "maop_psig": 1000,
+        "typical_pressure_psig": 800,
+        "status": "operational",
+        "region": "Texas Panhandle to Michigan",
+        "year_built": 1944,
+        "length_miles": 6400,
+        "connects_to": [
+          "Michigan",
+          "Indiana",
+          "Ohio"
+        ],
+        "ferc_regulated": true,
+        "line_weight": "heavy"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -101.0,
+            35.5
+          ],
+          [
+            -100.0,
+            36.5
+          ],
+          [
+            -99.0,
+            37.5
+          ],
+          [
+            -98.0,
+            38.5
+          ],
+          [
+            -97.0,
+            39.0
+          ],
+          [
+            -95.5,
+            39.2
+          ],
+          [
+            -94.0,
+            39.3
+          ],
+          [
+            -92.0,
+            39.5
+          ],
+          [
+            -90.0,
+            39.8
+          ],
+          [
+            -88.0,
+            40.0
+          ],
+          [
+            -86.5,
+            40.2
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 35,
+        "name": "Mountain Valley Pipeline",
+        "operator": "Equitrans Midstream",
+        "pipeline_type": "regional_transmission",
+        "diameter_inches": 42,
+        "capacity_bcfd": 2.0,
+        "utilization_pct": 35,
+        "maop_psig": 1480,
+        "typical_pressure_psig": 1150,
+        "status": "operational",
+        "region": "West Virginia to Virginia (Transco interconnect)",
+        "year_built": 2024,
+        "length_miles": 303,
+        "connects_from": "Appalachian Basin (Equitrans system)",
+        "connects_to": "Transco (Pittsylvania, VA)",
+        "ferc_regulated": true,
+        "line_weight": "medium"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -80.5,
+            39.2
+          ],
+          [
+            -80.2,
+            38.5
+          ],
+          [
+            -80.0,
+            37.8
+          ],
+          [
+            -79.8,
+            37.2
+          ],
+          [
+            -79.9,
+            36.8
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 36,
+        "name": "Rover Pipeline",
+        "operator": "Energy Transfer",
+        "pipeline_type": "regional_transmission",
+        "diameter_inches": 42,
+        "capacity_bcfd": 3.25,
+        "utilization_pct": 74,
+        "maop_psig": 1480,
+        "typical_pressure_psig": 1150,
+        "status": "operational",
+        "region": "Appalachia to Midwest/Dawn Hub",
+        "year_built": 2018,
+        "length_miles": 713,
+        "connects_from": "Appalachian Basin (multiple)",
+        "connects_to": [
+          "Vector Pipeline",
+          "Dawn Hub (Ontario)"
+        ],
+        "ferc_regulated": true,
+        "line_weight": "medium"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -81.0,
+            39.5
+          ],
+          [
+            -81.5,
+            40.0
+          ],
+          [
+            -82.0,
+            40.5
+          ],
+          [
+            -82.8,
+            41.0
+          ],
+          [
+            -83.5,
+            41.5
+          ],
+          [
+            -84.0,
+            41.8
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 37,
+        "name": "NEXUS Pipeline",
+        "operator": "Enbridge/DTE",
+        "pipeline_type": "regional_transmission",
+        "diameter_inches": 36,
+        "capacity_bcfd": 1.5,
+        "utilization_pct": 70,
+        "maop_psig": 1480,
+        "typical_pressure_psig": 1150,
+        "status": "operational",
+        "region": "Appalachia to Midwest/Dawn Hub",
+        "year_built": 2018,
+        "length_miles": 256,
+        "connects_from": "Appalachian Basin",
+        "connects_to": [
+          "Dawn Hub (Ontario)",
+          "Michigan markets"
+        ],
+        "ferc_regulated": true,
+        "line_weight": "medium"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -80.8,
+            40.2
+          ],
+          [
+            -81.2,
+            40.5
+          ],
+          [
+            -81.8,
+            40.8
+          ],
+          [
+            -82.5,
+            41.1
+          ],
+          [
+            -83.2,
+            41.4
+          ],
+          [
+            -83.8,
+            41.6
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 38,
+        "name": "Columbia Gas Transmission",
+        "operator": "TC Energy",
+        "pipeline_type": "interstate_header",
+        "diameter_inches": 36,
+        "capacity_bcfd": 4.5,
+        "utilization_pct": 78,
+        "maop_psig": 1000,
+        "typical_pressure_psig": 800,
+        "status": "operational",
+        "region": "Appalachia to Mid-Atlantic/Northeast",
+        "year_built": 1950,
+        "length_miles": 11500,
+        "connects_from": "Appalachian Basin",
+        "connects_to": [
+          "New York",
+          "New Jersey",
+          "Maryland"
+        ],
+        "ferc_regulated": true,
+        "line_weight": "heavy"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -81.5,
+            38.0
+          ],
+          [
+            -80.5,
+            38.5
+          ],
+          [
+            -79.5,
+            39.0
+          ],
+          [
+            -78.5,
+            39.5
+          ],
+          [
+            -77.5,
+            40.0
+          ],
+          [
+            -76.5,
+            40.5
+          ],
+          [
+            -75.5,
+            40.8
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 39,
+        "name": "Dominion Cove Point Pipeline",
+        "operator": "Dominion Energy",
+        "pipeline_type": "lng_feed",
+        "diameter_inches": 36,
+        "capacity_bcfd": 1.8,
+        "utilization_pct": 83,
+        "maop_psig": 1200,
+        "typical_pressure_psig": 950,
+        "status": "operational",
+        "region": "Appalachia to Cove Point LNG",
+        "year_built": 1972,
+        "length_miles": 136,
+        "connects_from": "Multiple Appalachian interconnects",
+        "connects_to": "Cove Point LNG Terminal",
+        "ferc_regulated": true,
+        "line_weight": "medium",
+        "facility_served": {
+          "name": "Cove Point LNG Terminal",
+          "type": "LNG Export",
+          "capacity_mtpa": 5.25,
+          "operator": "Dominion Energy"
+        }
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -79.5,
+            39.5
+          ],
+          [
+            -78.5,
+            39.2
+          ],
+          [
+            -77.8,
+            38.8
+          ],
+          [
+            -77.0,
+            38.5
+          ],
+          [
+            -76.5,
+            38.4
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 40,
+        "name": "Atlantic Sunrise Pipeline",
+        "operator": "Williams",
+        "pipeline_type": "regional_transmission",
+        "diameter_inches": 42,
+        "capacity_bcfd": 1.7,
+        "utilization_pct": 80,
+        "maop_psig": 1480,
+        "typical_pressure_psig": 1150,
+        "status": "operational",
+        "region": "Pennsylvania to Mid-Atlantic (Transco expansion)",
+        "year_built": 2018,
+        "length_miles": 183,
+        "connects_from": "Appalachian Basin",
+        "connects_to": "Transco mainline",
+        "ferc_regulated": true,
+        "line_weight": "medium"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -76.5,
+            41.2
+          ],
+          [
+            -76.2,
+            40.8
+          ],
+          [
+            -76.0,
+            40.4
+          ],
+          [
+            -75.8,
+            40.0
+          ],
+          [
+            -75.6,
+            39.6
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 41,
+        "name": "Algonquin Gas Transmission",
+        "operator": "Enbridge",
+        "pipeline_type": "interstate_header",
+        "diameter_inches": 30,
+        "capacity_bcfd": 3.0,
+        "utilization_pct": 89,
+        "maop_psig": 1200,
+        "typical_pressure_psig": 950,
+        "status": "operational",
+        "region": "New Jersey to New England",
+        "year_built": 1953,
+        "length_miles": 1130,
+        "connects_to": [
+          "Connecticut",
+          "Rhode Island",
+          "Massachusetts",
+          "Boston area"
+        ],
+        "ferc_regulated": true,
+        "line_weight": "heavy"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -74.2,
+            40.8
+          ],
+          [
+            -73.8,
+            41.0
+          ],
+          [
+            -73.2,
+            41.2
+          ],
+          [
+            -72.5,
+            41.4
+          ],
+          [
+            -71.8,
+            41.6
+          ],
+          [
+            -71.2,
+            41.8
+          ],
+          [
+            -70.8,
+            42.0
+          ],
+          [
+            -70.5,
+            42.3
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 42,
+        "name": "Iroquois Gas Transmission",
+        "operator": "Multiple (Enbridge, National Grid, etc.)",
+        "pipeline_type": "interstate_header",
+        "diameter_inches": 24,
+        "capacity_bcfd": 1.4,
+        "utilization_pct": 75,
+        "maop_psig": 1440,
+        "typical_pressure_psig": 1100,
+        "status": "operational",
+        "region": "Canada (TransCanada) to New York/Connecticut",
+        "year_built": 1991,
+        "length_miles": 416,
+        "connects_from": "TransCanada (Canada)",
+        "connects_to": [
+          "New York",
+          "Connecticut",
+          "Long Island"
+        ],
+        "ferc_regulated": true,
+        "line_weight": "heavy"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -74.0,
+            45.0
+          ],
+          [
+            -74.2,
+            44.0
+          ],
+          [
+            -74.0,
+            43.0
+          ],
+          [
+            -73.5,
+            42.5
+          ],
+          [
+            -73.2,
+            42.0
+          ],
+          [
+            -73.0,
+            41.5
+          ],
+          [
+            -72.8,
+            41.2
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 43,
+        "name": "Great Lakes Gas Transmission",
+        "operator": "TC Energy",
+        "pipeline_type": "interstate_header",
+        "diameter_inches": 36,
+        "capacity_bcfd": 2.4,
+        "utilization_pct": 58,
+        "maop_psig": 1000,
+        "typical_pressure_psig": 800,
+        "status": "operational",
+        "region": "Canada to Michigan/Wisconsin",
+        "year_built": 1967,
+        "length_miles": 2115,
+        "connects_from": "TransCanada (Manitoba)",
+        "connects_to": [
+          "Michigan",
+          "Wisconsin",
+          "Minnesota"
+        ],
+        "ferc_regulated": true,
+        "line_weight": "heavy"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -97.0,
+            49.0
+          ],
+          [
+            -95.0,
+            48.5
+          ],
+          [
+            -92.0,
+            47.5
+          ],
+          [
+            -89.0,
+            46.5
+          ],
+          [
+            -86.5,
+            46.0
+          ],
+          [
+            -84.5,
+            45.0
+          ],
+          [
+            -83.5,
+            43.5
+          ],
+          [
+            -83.0,
+            42.5
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 44,
+        "name": "Gulf South Pipeline",
+        "operator": "Boardwalk Pipeline",
+        "pipeline_type": "regional_transmission",
+        "diameter_inches": 30,
+        "capacity_bcfd": 2.5,
+        "utilization_pct": 69,
+        "maop_psig": 1000,
+        "typical_pressure_psig": 800,
+        "status": "operational",
+        "region": "East Texas to Alabama",
+        "year_built": 1954,
+        "length_miles": 7200,
+        "connects_to": [
+          "Mobile Bay",
+          "Gulf Coast markets"
+        ],
+        "ferc_regulated": true,
+        "line_weight": "medium"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -94.0,
+            32.0
+          ],
+          [
+            -93.0,
+            31.8
+          ],
+          [
+            -92.0,
+            31.5
+          ],
+          [
+            -91.0,
+            31.2
+          ],
+          [
+            -90.0,
+            31.0
+          ],
+          [
+            -89.0,
+            30.8
+          ],
+          [
+            -88.0,
+            30.7
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 45,
+        "name": "Midcontinent Express Pipeline",
+        "operator": "Kinder Morgan",
+        "pipeline_type": "regional_transmission",
+        "diameter_inches": 42,
+        "capacity_bcfd": 1.8,
+        "utilization_pct": 77,
+        "maop_psig": 1480,
+        "typical_pressure_psig": 1150,
+        "status": "operational",
+        "region": "Oklahoma to Alabama (Transco interconnect)",
+        "year_built": 2009,
+        "length_miles": 500,
+        "connects_from": "Bennington Hub (Oklahoma)",
+        "connects_to": "Transco (Butler, Alabama)",
+        "ferc_regulated": true,
+        "line_weight": "medium"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -96.0,
+            34.0
+          ],
+          [
+            -94.5,
+            33.5
+          ],
+          [
+            -93.0,
+            33.0
+          ],
+          [
+            -91.5,
+            32.5
+          ],
+          [
+            -90.0,
+            32.2
+          ],
+          [
+            -88.5,
+            32.0
+          ],
+          [
+            -87.5,
+            32.5
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 46,
+        "name": "Golden Pass Pipeline",
+        "operator": "Golden Pass Pipeline LLC",
+        "pipeline_type": "lng_feed",
+        "diameter_inches": 42,
+        "capacity_bcfd": 2.5,
+        "utilization_pct": 40,
+        "maop_psig": 1440,
+        "typical_pressure_psig": 1100,
+        "status": "operational",
+        "region": "Louisiana to Golden Pass LNG",
+        "year_built": 2010,
+        "length_miles": 69,
+        "connects_from": "Multiple interstate headers",
+        "connects_to": "Golden Pass LNG Terminal",
+        "note": "Expansion underway for LNG export",
+        "ferc_regulated": true,
+        "line_weight": "medium",
+        "facility_served": {
+          "name": "Golden Pass LNG Terminal",
+          "type": "LNG Export (under construction)",
+          "capacity_mtpa": 18,
+          "operator": "QatarEnergy / ExxonMobil"
+        }
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -93.2,
+            30.2
+          ],
+          [
+            -93.5,
+            30.0
+          ],
+          [
+            -93.8,
+            29.85
+          ],
+          [
+            -94.0,
+            29.78
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 47,
+        "name": "Kinder Morgan Louisiana Pipeline (KMLP)",
+        "operator": "Kinder Morgan",
+        "pipeline_type": "lng_feed",
+        "diameter_inches": 42,
+        "capacity_bcfd": 3.4,
+        "utilization_pct": 82,
+        "maop_psig": 1440,
+        "typical_pressure_psig": 1150,
+        "status": "operational",
+        "region": "To Sabine Pass LNG",
+        "year_built": 2008,
+        "length_miles": 130,
+        "connects_from": "Columbia Gulf Transmission",
+        "connects_to": "Sabine Pass LNG Terminal",
+        "ferc_regulated": true,
+        "line_weight": "medium"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -92.5,
+            30.5
+          ],
+          [
+            -92.8,
+            30.2
+          ],
+          [
+            -93.2,
+            30.0
+          ],
+          [
+            -93.5,
+            29.8
+          ],
+          [
+            -93.85,
+            29.73
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 48,
+        "name": "Gulf Run Pipeline",
+        "operator": "Energy Transfer",
+        "pipeline_type": "regional_transmission",
+        "diameter_inches": 42,
+        "capacity_bcfd": 1.65,
+        "utilization_pct": 55,
+        "maop_psig": 1440,
+        "typical_pressure_psig": 1100,
+        "status": "operational",
+        "region": "North Louisiana to Gulf Coast",
+        "year_built": 2022,
+        "length_miles": 165,
+        "connects_from": "Haynesville Shale",
+        "connects_to": "Golden Pass LNG (via interconnects)",
+        "note": "20-year contract with Golden Pass LNG",
+        "ferc_regulated": true,
+        "line_weight": "medium"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -93.5,
+            32.5
+          ],
+          [
+            -93.2,
+            31.8
+          ],
+          [
+            -93.0,
+            31.2
+          ],
+          [
+            -92.8,
+            30.6
+          ],
+          [
+            -92.6,
+            30.1
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 49,
+        "name": "Louisiana Energy Gateway (LEG)",
+        "operator": "Williams Companies",
+        "pipeline_type": "regional_transmission",
+        "diameter_inches": 42,
+        "capacity_bcfd": 1.8,
+        "utilization_pct": 50,
+        "maop_psig": 1440,
+        "typical_pressure_psig": 1100,
+        "status": "operational",
+        "region": "Haynesville to Gulf Coast",
+        "year_built": 2024,
+        "length_miles": 135,
+        "connects_from": "Haynesville Shale",
+        "connects_to": "Gulf Coast LNG/markets",
+        "ferc_regulated": true,
+        "line_weight": "medium"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -93.5,
+            32.3
+          ],
+          [
+            -93.2,
+            31.6
+          ],
+          [
+            -92.9,
+            31.0
+          ],
+          [
+            -92.6,
+            30.4
+          ],
+          [
+            -92.4,
+            30.0
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 50,
+        "name": "Verde Pipeline",
+        "operator": "Pecan Pipeline Company (EOG Resources)",
+        "pipeline_type": "regional_transmission",
+        "diameter_inches": 36,
+        "capacity_bcfd": 1.0,
+        "utilization_pct": 70,
+        "maop_psig": 1440,
+        "typical_pressure_psig": 1100,
+        "status": "operational",
+        "region": "Eagle Ford to Agua Dulce",
+        "year_built": 2024,
+        "length_miles": 85,
+        "connects_from": "Webb County (Eagle Ford)",
+        "connects_to": "Agua Dulce Hub",
+        "ferc_regulated": false,
+        "line_weight": "medium"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -99.5,
+            27.5
+          ],
+          [
+            -99.0,
+            27.7
+          ],
+          [
+            -98.5,
+            27.8
+          ],
+          [
+            -98.0,
+            27.8
+          ],
+          [
+            -97.8,
+            27.8
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 51,
+        "name": "Spears Expansion Pipeline",
+        "operator": "Howard Energy Partners",
+        "pipeline_type": "regional_transmission",
+        "diameter_inches": 30,
+        "capacity_bcfd": 1.0,
+        "utilization_pct": 70,
+        "maop_psig": 1200,
+        "typical_pressure_psig": 950,
+        "status": "operational",
+        "region": "Eagle Ford to Gulf Coast",
+        "year_built": 2023,
+        "length_miles": 75,
+        "connects_from": "Eagle Ford (Webb County)",
+        "connects_to": "Kinder Morgan Texas Pipeline",
+        "ferc_regulated": false,
+        "line_weight": "medium"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -99.3,
+            27.6
+          ],
+          [
+            -98.8,
+            27.8
+          ],
+          [
+            -98.3,
+            28.0
+          ],
+          [
+            -97.9,
+            28.1
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 52,
+        "name": "East Tennessee Natural Gas",
+        "operator": "Enbridge",
+        "pipeline_type": "interstate_header",
+        "diameter_inches": 30,
+        "capacity_bcfd": 1.86,
+        "utilization_pct": 72,
+        "maop_psig": 1000,
+        "typical_pressure_psig": 800,
+        "status": "operational",
+        "region": "Tennessee to Virginia",
+        "year_built": 1954,
+        "length_miles": 1526,
+        "connects_to": [
+          "Southeast markets",
+          "Mid-Atlantic"
+        ],
+        "ferc_regulated": true,
+        "data_center_relevance": "Serves growing Virginia demand",
+        "line_weight": "heavy"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -86.8,
+            36.2
+          ],
+          [
+            -85.5,
+            36.3
+          ],
+          [
+            -84.2,
+            36.5
+          ],
+          [
+            -83.0,
+            36.8
+          ],
+          [
+            -81.5,
+            37.1
+          ],
+          [
+            -80.0,
+            37.3
+          ],
+          [
+            -79.0,
+            37.5
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 53,
+        "name": "Gulfstream Pipeline",
+        "operator": "Enbridge / Williams (JV)",
+        "pipeline_type": "regional_transmission",
+        "diameter_inches": 36,
+        "capacity_bcfd": 1.3,
+        "utilization_pct": 78,
+        "maop_psig": 1480,
+        "typical_pressure_psig": 1150,
+        "status": "operational",
+        "region": "Alabama to Florida (offshore Gulf)",
+        "year_built": 2002,
+        "length_miles": 745,
+        "note": "Offshore pipeline across Gulf of Mexico",
+        "connects_to": "Florida markets",
+        "ferc_regulated": true,
+        "line_weight": "medium"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -88.1,
+            30.4
+          ],
+          [
+            -87.5,
+            29.8
+          ],
+          [
+            -86.5,
+            29.0
+          ],
+          [
+            -85.5,
+            28.5
+          ],
+          [
+            -84.5,
+            28.0
+          ],
+          [
+            -83.5,
+            27.8
+          ],
+          [
+            -82.5,
+            27.6
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 54,
+        "name": "Texas Gas Transmission",
+        "operator": "Boardwalk Pipeline Partners",
+        "pipeline_type": "interstate_header",
+        "diameter_inches": 36,
+        "capacity_bcfd": 2.1,
+        "utilization_pct": 73,
+        "maop_psig": 1000,
+        "typical_pressure_psig": 800,
+        "status": "operational",
+        "region": "Louisiana to Ohio River Valley",
+        "year_built": 1950,
+        "length_miles": 5800,
+        "storage_bcf": 100,
+        "connects_to": [
+          "Ohio Valley utilities",
+          "Midwest markets"
+        ],
+        "ferc_regulated": true,
+        "line_weight": "heavy"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -91.5,
+            30.0
+          ],
+          [
+            -90.5,
+            31.5
+          ],
+          [
+            -89.5,
+            33.0
+          ],
+          [
+            -88.5,
+            35.0
+          ],
+          [
+            -87.5,
+            37.0
+          ],
+          [
+            -86.5,
+            38.5
+          ],
+          [
+            -85.5,
+            39.5
+          ],
+          [
+            -84.5,
+            40.0
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 55,
+        "name": "Vector Pipeline",
+        "operator": "Enbridge",
+        "pipeline_type": "regional_transmission",
+        "diameter_inches": 42,
+        "capacity_bcfd": 1.0,
+        "utilization_pct": 65,
+        "maop_psig": 1200,
+        "typical_pressure_psig": 950,
+        "status": "operational",
+        "region": "Chicago to Michigan/Ontario",
+        "year_built": 2000,
+        "length_miles": 348,
+        "connects_from": "Chicago Hub",
+        "connects_to": "Dawn Hub (Ontario)",
+        "ferc_regulated": true,
+        "line_weight": "medium"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -88.0,
+            41.8
+          ],
+          [
+            -87.0,
+            42.0
+          ],
+          [
+            -86.0,
+            42.2
+          ],
+          [
+            -85.0,
+            42.5
+          ],
+          [
+            -84.0,
+            42.8
+          ],
+          [
+            -83.0,
+            42.5
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 56,
+        "name": "Trident Intrastate Pipeline",
+        "operator": "Kinder Morgan",
+        "pipeline_type": "regional_transmission",
+        "diameter_inches": 42,
+        "capacity_bcfd": 2.0,
+        "utilization_pct": 0,
+        "maop_psig": 1440,
+        "typical_pressure_psig": 1100,
+        "status": "under_construction",
+        "region": "Katy TX to Port Arthur LNG corridor",
+        "year_built": 2026,
+        "length_miles": 216,
+        "connects_from": "Katy Hub",
+        "connects_to": "Port Arthur LNG area",
+        "note": "Under construction - expected 2026",
+        "ferc_regulated": false,
+        "line_weight": "medium"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -95.8,
+            29.7
+          ],
+          [
+            -95.2,
+            29.8
+          ],
+          [
+            -94.6,
+            29.85
+          ],
+          [
+            -94.1,
+            29.88
+          ],
+          [
+            -93.95,
+            29.9
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 57,
+        "name": "Saguaro Connector Pipeline",
+        "operator": "ONEOK",
+        "pipeline_type": "regional_transmission",
+        "diameter_inches": 48,
+        "capacity_bcfd": 2.8,
+        "utilization_pct": 0,
+        "maop_psig": 1480,
+        "typical_pressure_psig": 1200,
+        "status": "under_construction",
+        "region": "Permian Basin to Mexico",
+        "year_built": 2026,
+        "length_miles": 155,
+        "connects_from": "WesTex Pipeline (ONEOK)",
+        "connects_to": "Mexico (west coast LNG)",
+        "note": "FERC Presidential Permit approved",
+        "ferc_regulated": true,
+        "line_weight": "medium"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -104.0,
+            31.5
+          ],
+          [
+            -104.5,
+            31.2
+          ],
+          [
+            -105.0,
+            31.0
+          ],
+          [
+            -105.5,
+            30.8
+          ],
+          [
+            -106.0,
+            31.0
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 58,
+        "name": "Power Express Project",
+        "operator": "Williams Companies",
+        "pipeline_type": "connector",
+        "diameter_inches": 42,
+        "capacity_bcfd": 0.95,
+        "utilization_pct": 0,
+        "maop_psig": 1440,
+        "typical_pressure_psig": 1100,
+        "status": "proposed",
+        "region": "Transco expansion for Virginia data centers",
+        "year_built": 2030,
+        "length_miles": 50,
+        "connects_from": "Transco mainline",
+        "connects_to": "Northern Virginia data center market",
+        "note": "Q3 2030 target - specifically for data center load growth",
+        "ferc_regulated": true,
+        "data_center_relevance": "Dedicated expansion for Virginia data center demand",
+        "line_weight": "light"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -78.0,
+            37.5
+          ],
+          [
+            -77.8,
+            38.0
+          ],
+          [
+            -77.6,
+            38.5
+          ],
+          [
+            -77.5,
+            39.0
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 59,
+        "name": "Southeast Supply Enhancement (SSEP)",
+        "operator": "Williams Companies",
+        "pipeline_type": "connector",
+        "diameter_inches": 42,
+        "capacity_bcfd": 1.6,
+        "utilization_pct": 0,
+        "maop_psig": 1440,
+        "typical_pressure_psig": 1100,
+        "status": "proposed",
+        "region": "Virginia/North Carolina Transco expansion",
+        "year_built": 2027,
+        "length_miles": 55,
+        "connects_from": "Transco Zone 5 / MVP interconnect",
+        "connects_to": "Southeast US markets",
+        "note": "FERC application filed Oct 2024",
+        "ferc_regulated": true,
+        "data_center_relevance": "Supports growing power gen and data center demand",
+        "line_weight": "light"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -79.9,
+            36.8
+          ],
+          [
+            -79.7,
+            36.4
+          ],
+          [
+            -79.5,
+            36.1
+          ],
+          [
+            -79.8,
+            35.8
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 60,
+        "name": "Elba Express Pipeline",
+        "operator": "Kinder Morgan",
+        "pipeline_type": "regional_transmission",
+        "diameter_inches": 42,
+        "capacity_bcfd": 1.2,
+        "utilization_pct": 65,
+        "maop_psig": 1200,
+        "typical_pressure_psig": 950,
+        "status": "operational",
+        "region": "Georgia to South Carolina (Elba Island LNG)",
+        "year_built": 2010,
+        "length_miles": 200,
+        "connects_from": "Elba Island LNG Terminal",
+        "connects_to": [
+          "Transco",
+          "Southern Natural Gas"
+        ],
+        "note": "Bidirectional - supports LNG export",
+        "ferc_regulated": true,
+        "line_weight": "medium"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -81.05,
+            32.05
+          ],
+          [
+            -81.5,
+            32.5
+          ],
+          [
+            -82.0,
+            33.0
+          ],
+          [
+            -82.5,
+            33.5
+          ],
+          [
+            -82.8,
+            34.0
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 61,
+        "name": "Fayetteville Express Pipeline",
+        "operator": "Kinder Morgan / Energy Transfer (JV)",
+        "pipeline_type": "regional_transmission",
+        "diameter_inches": 42,
+        "capacity_bcfd": 2.0,
+        "utilization_pct": 55,
+        "maop_psig": 1440,
+        "typical_pressure_psig": 1100,
+        "status": "operational",
+        "region": "Arkansas to Mississippi",
+        "year_built": 2011,
+        "length_miles": 185,
+        "connects_from": "Fayetteville Shale",
+        "connects_to": "Trunkline Gas Company",
+        "ferc_regulated": true,
+        "line_weight": "medium"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -92.5,
+            35.2
+          ],
+          [
+            -91.8,
+            34.8
+          ],
+          [
+            -91.2,
+            34.4
+          ],
+          [
+            -90.5,
+            34.0
+          ],
+          [
+            -89.9,
+            33.8
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 62,
+        "name": "Kinder Morgan Texas Pipeline (KMTP)",
+        "operator": "Kinder Morgan",
+        "pipeline_type": "regional_transmission",
+        "diameter_inches": 36,
+        "capacity_bcfd": 1.8,
+        "utilization_pct": 91,
+        "maop_psig": 1000,
+        "typical_pressure_psig": 800,
+        "status": "operational",
+        "region": "West Texas to Dallas/Gulf Coast",
+        "year_built": 1952,
+        "length_miles": 2100,
+        "connects_from": "Permian Basin",
+        "connects_to": [
+          "Dallas Market",
+          "Gulf Coast"
+        ],
+        "note": "Intrastate - Railroad Commission of Texas regulated",
+        "ferc_regulated": false,
+        "line_weight": "medium"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -103.5,
+            32.8
+          ],
+          [
+            -102.5,
+            32.85
+          ],
+          [
+            -101.5,
+            32.9
+          ],
+          [
+            -100.8,
+            32.9
+          ],
+          [
+            -100.0,
+            32.95
+          ],
+          [
+            -99.2,
+            33.0
+          ],
+          [
+            -98.2,
+            33.1
+          ],
+          [
+            -97.5,
+            32.9
+          ],
+          [
+            -96.8,
+            32.8
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 63,
+        "name": "Kinder Morgan Tejas Pipeline",
+        "operator": "Kinder Morgan",
+        "pipeline_type": "regional_transmission",
+        "diameter_inches": 30,
+        "capacity_bcfd": 1.5,
+        "utilization_pct": 78,
+        "maop_psig": 1000,
+        "typical_pressure_psig": 800,
+        "status": "operational",
+        "region": "Texas Gulf Coast",
+        "year_built": 1985,
+        "length_miles": 3800,
+        "connects_to": "South Texas markets",
+        "note": "Intrastate system",
+        "ferc_regulated": false,
+        "line_weight": "medium"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -97.8,
+            27.8
+          ],
+          [
+            -97.5,
+            28.5
+          ],
+          [
+            -97.0,
+            29.0
+          ],
+          [
+            -96.5,
+            29.3
+          ],
+          [
+            -96.0,
+            29.5
+          ],
+          [
+            -95.5,
+            29.6
+          ],
+          [
+            -95.0,
+            29.7
+          ],
+          [
+            -94.5,
+            29.8
+          ],
+          [
+            -94.0,
+            29.9
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 64,
+        "name": "Maritimes & Northeast Pipeline (US)",
+        "operator": "Enbridge",
+        "pipeline_type": "interstate_header",
+        "diameter_inches": 30,
+        "capacity_bcfd": 0.8,
+        "utilization_pct": 55,
+        "maop_psig": 1440,
+        "typical_pressure_psig": 1100,
+        "status": "operational",
+        "region": "Canada/Maine to New England",
+        "year_built": 1999,
+        "length_miles": 343,
+        "connects_from": "Nova Scotia / New Brunswick (Canada)",
+        "connects_to": [
+          "Algonquin",
+          "Tennessee Gas"
+        ],
+        "ferc_regulated": true,
+        "line_weight": "medium"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -66.0,
+            45.5
+          ],
+          [
+            -67.5,
+            45.3
+          ],
+          [
+            -68.5,
+            45.0
+          ],
+          [
+            -69.5,
+            44.5
+          ],
+          [
+            -70.0,
+            44.0
+          ],
+          [
+            -70.3,
+            43.5
+          ],
+          [
+            -70.5,
+            43.2
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 65,
+        "name": "Cheyenne Plains Pipeline",
+        "operator": "Tallgrass Energy",
+        "pipeline_type": "regional_transmission",
+        "diameter_inches": 36,
+        "capacity_bcfd": 0.85,
+        "utilization_pct": 52,
+        "maop_psig": 1440,
+        "typical_pressure_psig": 1100,
+        "status": "operational",
+        "region": "Wyoming to Kansas",
+        "year_built": 2005,
+        "length_miles": 380,
+        "connects_from": "Cheyenne Hub",
+        "connects_to": "Northern Natural Gas",
+        "ferc_regulated": true,
+        "line_weight": "medium"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -105.0,
+            41.0
+          ],
+          [
+            -104.0,
+            40.5
+          ],
+          [
+            -103.0,
+            40.0
+          ],
+          [
+            -102.0,
+            39.5
+          ],
+          [
+            -101.0,
+            39.0
+          ],
+          [
+            -100.0,
+            38.5
+          ]
         ]
       }
     }
-  ]
+  ],
+  "totalPipelines": 65,
+  "version": "2.0"
 }
